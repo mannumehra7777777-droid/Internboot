@@ -49,17 +49,19 @@ venv\Scripts\activate
 Install the required packages and set up your secret vault:
 ```bash
 pip install -r requirements.txt
-
-🔑 Crucial Step: Create a file named .env in the root directory (where manage.py is) and add your secret key.
-SECRET_KEY=your_django_secret_key_here
 ```
+#🔑 Crucial Step: Create a file named .env in the root directory (where manage.py is) and add your secret key.
+SECRET_KEY=your_django_secret_key_here
+
 ### 3. Initialize Database & Run
+```bash
 python manage.py migrate
 python manage.py runserver
-
+```
 ​📂 Folder Structure
 ​core/: Root configuration and URL dispatching.
 ​food/: Application logic including views, models, and custom templates.
 ​media/: Dynamic storage for food item assets.
 ​screenshots/: UI previews for documentation.
+
 
