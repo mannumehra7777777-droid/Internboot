@@ -58,7 +58,8 @@ SECRET_KEY=your_django_secret_key_here
 python manage.py migrate
 python manage.py runserver
 ```
-​📂 Folder Structure
+### 📂 Folder Structure
+```text
 Food_Ordering/
 ├── core/               # Project settings & URLs
 ├── food/               # Main app (Views, Models, Templates)
