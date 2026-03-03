@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><title>Zesty Bites | Menu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #ff4757; --dark: #2f3542; }
+        body { font-family: 'Poppins', sans-serif; background: #f1f2f6; margin: 0; }
+        header { background: white; padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+        .logo { color: var(--primary); font-size: 24px; font-weight: 700; }
+        .logout-btn { background: var(--primary); color: white; border: none; padding: 8px 18px; border-radius: 50px; cursor: pointer; font-weight: 600; text-decoration: none; }
+        
+        .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        .card { background: white; border-radius: 25px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; }
+        .card:hover { transform: translateY(-15px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+        
+        .img-box { height: 220px; overflow: hidden; }
+        .img-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .card:hover img { transform: scale(1.1); }
+        
+        .info { padding: 25px; text-align: center; }
+        .price { font-size: 22px; color: #2ed573; font-weight: 700; margin: 10px 0; display: block; }
+        .btn { background: var(--dark); color: white; border: none; width: 100%; padding: 12px; border-radius: 12px; font-weight: 600; cursor: pointer; transition: 0.3s; }
+        .btn:hover { background: var(--primary); letter-spacing: 1px; }
+
+        #alert { display: none; position: fixed; bottom: 30px; right: 30px; background: var(--dark); color: white; padding: 15px 30px; border-radius: 10px; animation: slideIn 0.5s ease; }
+        @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo">🌶️ Zesty Bites</div>
+    <div>
+        <span style="margin-right:15px;">Hi, <b>{{ user.username }}</b></span>
+        <form action="{% url 'logout' %}" method="post" style="display:inline;">{% csrf_token %}<button type="submit" class="logout-btn">Logout</button></form>
+    </div>
+</header>
+<div class="container">
+    {% for item in items %}
+    <div class="card">
+        <div class="img-box"><img src="{{ item.image.url }}" alt="item.name"></div>
+        <div class="info">
+            <h3>{{ item.name }}</h3>
+            <span class="price">₹ {{ item.price }}</span>
+            <button class="btn" onclick="order('{{ item.name }}')">Order Now</button>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div id="alert"></div>
+<script>
+    function order(name) {
+        const a = document.getElementById('alert');
+        a.innerHTML = "Success! " + name + " added! 🛵";
+        a.style.display = 'block';
+        setTimeout(() => { a.style.display = 'none'; }, 3000);
+    }
+</script>
+</body>
+</html>
