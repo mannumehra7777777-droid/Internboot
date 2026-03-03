@@ -59,9 +59,14 @@ python manage.py migrate
 python manage.py runserver
 ```
 ​📂 Folder Structure
-​core/: Root configuration and URL dispatching.
-​food/: Application logic including views, models, and custom templates.
-​media/: Dynamic storage for food item assets.
-​screenshots/: UI previews for documentation.
+Food_Ordering/
+├── core/               # Project settings & URLs
+├── food/               # Main app (Views, Models, Templates)
+├── food_images/        # Product images for the menu
+├── media/              # Dynamic user-uploaded content
+├── screenshots/        # UI previews for this README
+├── manage.py           # Django command-line utility
+├── requirements.txt    # Project dependencies
+└── README.md           # Project documentation
 
 
