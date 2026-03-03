@@ -39,12 +39,12 @@ The project implements a strict .gitignore policy to prevent sensitive files lik
 
 ### 1. Clone & Environment
 ```bash
-git clone [https://github.com/YOUR_USERNAME/Food_Ordering.git](https://github.com/YOUR_USERNAME/Food_Ordering.git)
-cd Food_Ordering
+git clone https://github.com/mannumehra7777777-droid/Internboot.git
+cd Internboot/Food_Ordering
 python -m venv venv
 # Activate on Windows:
 venv\Scripts\activate
-
+```
 ### 2. Dependencies & Security
 Install the required packages and set up your secret vault:
 ```bash
@@ -52,7 +52,7 @@ pip install -r requirements.txt
 
 🔑 Crucial Step: Create a file named .env in the root directory (where manage.py is) and add your secret key.
 SECRET_KEY=your_django_secret_key_here
-
+```
 ### 3. Initialize Database & Run
 python manage.py migrate
 python manage.py runserver
@@ -62,3 +62,4 @@ python manage.py runserver
 ​food/: Application logic including views, models, and custom templates.
 ​media/: Dynamic storage for food item assets.
 ​screenshots/: UI previews for documentation.
+
