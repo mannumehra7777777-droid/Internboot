@@ -1,44 +1,56 @@
-# 📚 Library Pro  | Enterprise Edition
+# 📚 Library Pro | Enterprise Edition 
 
-A high-end, professional Library Management System developed for *Internboot Projects. This system implements **Role-Based Access Control (RBAC)* and a secure *Admin Verification* workflow to ensure data integrity and physical book security.
+A professional-grade Library Management System developed for *Internboot Projects. This application implements **Role-Based Access Control (RBAC)* to provide secure, customized experiences for Administrators and Students, ensuring data integrity through a centralized verification workflow.
 
 ---
 
-## 🚀 Professional Features
-* *Dual-Portal Access*: Dedicated interfaces for Administrators and Students with different permission levels.
-* *Admin Verification Desk*: A security layer where Admins must "Approve" returns before a book's status reverts to "Available."
-* *Advanced Real-time Filtering*: Instant search functionality across titles and authors with zero latency.
-* *Automated Financial Logic*: Built-in fine calculator that applies a $10/day penalty for overdue resources.
-* *Database Versioning*: Utilizes the library_v5.db schema for robust transaction logging and persistence.
+## 🚀 System Features
+* *Dual-Role Architecture*: Distinct interfaces for Administrators and Students.
+* *Admin Verification Desk*: A mandatory security layer for book returns.
+* *Real-time Inventory Control*: Live search and status tracking via SQLite.
+* *Automated Penalty Logic*: Integrated fine calculation for overdue resources.
+* *Modern UI/UX*: High-contrast, card-based interface built with Python Tkinter.
 
 ---
 
 ## 📸 System Walkthrough
 
-### 1. The Secure Login Portal
-Featuring a modern, centered "Glassmorphism" design. New students can register themselves, while Admin access remains restricted.
+### 1. Secure Login Portal
+The gateway to the system. Handles encrypted-style authentication and role assignment for users and staff.
+![Login Screen](Screenshots/login.png)
 
+### 2. Administrator Dashboard
+The command center for library staff. Includes tools for inventory management, return approvals, and CSV reporting.
+![Admin View](Screenshots/admin_view.png)
 
-### 2. Live Inventory Management
-A clean, card-based dashboard showing the global book list. Statuses are color-coded:
-* *Green*: Available for Issue.
-* *Red*: Currently Issued to a student.
-* *Yellow*: Pending Admin Approval (Returned but not yet verified).
-
-
-### 3. Student Self-Service Workflow
-Students can browse and "Issue" books directly. When returning, the system notifies the Admin instead of instantly clearing the record.
-
-
-### 4. Admin Verification Desk (Security Layer)
-The exclusive "Verification Desk" where Admins confirm the physical receipt of a book. This prevents students from falsely claiming a return.
-
+### 3. Student Self-Service Portal
+A streamlined interface for students to discover resources, track their borrowed books, and monitor pending fines.
+![Student View](Screenshots/student_view.png)
 
 ---
 
-## 🛠️ Installation & Setup
-1. *Clone the Project*: Ensure main.py is in your local directory.
-2. *Database Initialization*: If upgrading from an older version, delete any existing .db files to allow the v5.0 schema to generate.
-3. *Execute*:
+## 🛠️ Technical Specifications
+* *Language*: Python 3.10+
+* *Database*: SQLite (Relational Schema v5.0)
+* *GUI Library*: Tkinter (Modular Frame Design)
+* *Reporting*: CSV Export Functionality
+
+---
+## 🛠️ Installation
+1. Clone this repository.
+2. Create and activate a virtual environment:
    ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows use venv\Scripts\activate
+   ```
+3. Install Dependencies
+```bash
+   pip install -r requirements.txt
+   ```
+4. Run
+```bash
+   python main.py
+   ```
+---
+Developed for Internboot | March 2026
    python main.py
